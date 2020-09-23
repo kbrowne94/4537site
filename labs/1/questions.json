@@ -1,0 +1,51 @@
+{
+  "quiz": [
+    {
+      "question": "What does html stand for?",
+      "choices": [
+        "Hyper Text Markup Language",
+        "High Text Markup Language",
+        "Hyper Tabular Markup Language",
+        "None of these"
+      ]
+    },
+    {
+      "question": "Markup tags tell the web browser",
+      "choices": [
+        "How to organise the page",
+        "How to display the page",
+        "How to display message box on page",
+        "None of these"
+      ]
+    },
+    {
+      "question": "Which of these are not a javascript datatype?",
+      "choices": [
+        "undefined",
+        "hexadecimal",
+        "null",
+        "string",
+        "None of these"
+      ]
+    },
+    {
+      "question": "What Method is used to remove the last value of an array?",
+      "choices": [
+        ".shift()",
+        ".unshift()",
+        ".pop()",
+        "None of these"
+      ]
+    },
+    {
+      "question": "which is the correct method for adding 4 and 3?",
+      "choices": [
+        "\"4\" + \"3\"",
+        "4 + \"3\"",
+        "4 + 3",
+        "None of these"
+      ]
+    }
+  ],
+  "answers": [1, 1, 2, 3, 3]
+}
