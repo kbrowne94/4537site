@@ -56,6 +56,10 @@ document.getElementById("start").onclick = function () {
     create_table(board);
 }
 
+function endGame() {
+    alert("you lost");
+}
+
 function create_table(board) {
     let total_rows = dim;
     let total_cols = dim;
@@ -91,6 +95,10 @@ function create_table(board) {
                         cell.classList.toggle('open-miss');
                         score--;
                         document.getElementById('score').innerHTML = score;
+                        if(score < 0){
+                            endGame();
+
+                        }
                     }else {
                         cell.classList.toggle('open-hit');
                         num_positive_cards--;
