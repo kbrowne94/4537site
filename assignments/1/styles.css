@@ -5,38 +5,26 @@
 }
 body {
     height: 100vh;
-    background-color: #e8ded2;
+	background-color: #e8ded2;
+	color: black;
 }
 
-.board {
+#MemoryGame {
     animation: turn 1s linear;
-    animation-delay: 2s;
+    animation-delay: 1s;
     animation-fill-mode: forwards;  
     transform-origin: center center;
     /* text-align: center; */
     float: left;
-    width: 60%; 
+	width: 60%;
+	height: 100%;
+    width: 70%; 
 
 }
 
-#score {
-    visibility: hidden;
+table {
+	margin: 0 auto;
 }
-.memory-game {
-    height: 100%;
-    width: 100%;
-	background: #716F71;
-	padding: 1rem;
-	border-radius: 4px;
-	box-shadow: 8px 9px 26px 0 rgba(46, 61, 73, 0.5);
-    display: grid;
-    grid-template-columns: auto auto auto auto auto auto auto;
-	justify-content: space-around;
-	align-items: center;
-    margin: 0 0 3em;
-    
-}
-
 .card{
     height: 5rem;
 	width: 5rem;
@@ -51,9 +39,18 @@ body {
 	align-items: center;
 	box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
 }
+.boardrow {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
 
+}
 
-.memory-game .card.open-hit {
+.hide {
+	visibility: hidden;
+}
+
+#board .card.open-hit {
 	transform: rotateY(0);
 	background: #02b3e4;
 	cursor: default;
@@ -63,7 +60,7 @@ body {
 	animation-duration: .75s;
 }
 
-.memory-game .card.open-miss {
+#board .card.open-miss {
 	transform: rotateY(0);
 	background: #e40246;
 	cursor: default;
@@ -73,13 +70,8 @@ body {
 	animation-duration: .75s;
 }
 
-.memory-card-back {
-    width: 100px;
-    height: 100px;
-    background-color: blue;
-}
 
-.memory-game .card.disabled {
+#board .card.disabled {
 	pointer-events: none;
 	opacity: 0.9;
 }
