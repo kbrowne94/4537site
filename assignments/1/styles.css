@@ -104,5 +104,5 @@ table {
 
 
 @keyframes turn{
-    100%{transform:rotate(180deg)}
+    100%{transform:rotate(90deg)}
 }
