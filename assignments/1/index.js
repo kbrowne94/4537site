@@ -1,8 +1,9 @@
 let score = 0;
-let num_false_cards = 3;
+let num_false_cards = 6;
 let num_positive_cards = 9 -num_false_cards;
 let dim = 3;
 let gamestate = true;
+let trial = 0;
 
 
 // function to grab highscores for leaderboard
@@ -39,11 +40,9 @@ function setFalseCards(board, falseCardCount) {
         }
     }
 }
-// let board = draw_board(3);
-// setFalseCards(board, num_false_cards);
 
 document.getElementById("start").onclick = function () {
-    if(score > 0 && num_false_cards < dim*dim-5){
+    if(score > 0 && num_false_cards < dim*dim){
         num_false_cards+=4;
         if (dim < 7){
             dim++;
@@ -54,21 +53,34 @@ document.getElementById("start").onclick = function () {
     board = draw_board(dim);
     setFalseCards(board, num_false_cards);
     create_table(board);
+    setTimeout(function () {
+        let table = document.getElementById("MemoryGame");
+        table.classList.remove('disabled');
+    },3000)
 }
 
 function endGame() {
     alert("you lost");
 }
 
+document.getElementById('reset').onclick = function () {
+    location.reload();
+}
+
+
+
 function create_table(board) {
+    trial +=1;
+    document.getElementById('trial').innerHTML = trial;
     let total_rows = dim;
     let total_cols = dim;
     let gameBoard = document.getElementById("board");
     gameBoard.querySelectorAll('*').forEach(n => n.remove());
-    // gameBoard = newGame;
+    
     let table1 = document.createElement("table");
     table1.id = "MemoryGame";
     table1.classList.add('center');
+    table1.classList.add('disabled');
     for(let r = 0; r < total_rows; r++){
         let row = document.createElement("tr");
         row.classList.add('boardrow');
