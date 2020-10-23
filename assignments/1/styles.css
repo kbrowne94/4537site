@@ -133,7 +133,8 @@ table {
 
 @media (max-width: 700px) {
     .card{
-		height: 2rem;
+		height: 1rem;
+		width: 1rem;
 		margin: 0.1rem 0.1rem;
 	}
 
@@ -142,6 +143,7 @@ table {
 @media (max-width: 400px) {
     .card{
 		height: 1rem;
+	    width: 1rem;
 		margin: 0.1rem 0.1rem;
 	}
 
