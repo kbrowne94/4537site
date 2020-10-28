@@ -1,6 +1,7 @@
 function getData() {
     let xhttp = new XMLHttpRequest();
-    xhttp.open("GET", "http://localhost:8080", true);
+    xhttp.open("GET", "http://vast-journey-61502.herokuapp.com/", true);
+    xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xhttp.send();
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
@@ -30,8 +31,9 @@ document.getElementById("userform").addEventListener('submit', function(event) {
     let score = document.getElementById("score").innerHTML;
     score = parseInt(score);
     let xhttp = new XMLHttpRequest();
-    xhttp.open("POST", "http://localhost:8080", true);
+    xhttp.open("POST", "http://vast-journey-61502.herokuapp.com/", true);
     xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    // xhttp.setRequestHeader("Access-Control-Allow-Origin", "*");
     xhttp.onreadystatechange = function() {
         if(xhttp.readyState == XMLHttpRequest.DONE && xhttp.status == 200) {
             alert('Your score was submitted') ? "" : location.reload()
