@@ -1,7 +1,8 @@
+const url = "https://blooming-ocean-45270.herokuapp.com"
 function getData() {
     let xhttp = new XMLHttpRequest();
     // let url = "http://localhost:8080"
-    let url = "https://blooming-ocean-45270.herokuapp.com"
+    
     xhttp.open("GET", url, true);
     xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xhttp.send();
