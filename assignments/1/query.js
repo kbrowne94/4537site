@@ -1,6 +1,8 @@
 function getData() {
     let xhttp = new XMLHttpRequest();
-    xhttp.open("GET", "http://vast-journey-61502.herokuapp.com/", true);
+    // let url = "http://localhost:8080"
+    let url = "https://blooming-ocean-45270.herokuapp.com"
+    xhttp.open("GET", url, true);
     xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xhttp.send();
     xhttp.onreadystatechange = function () {
@@ -31,7 +33,7 @@ document.getElementById("userform").addEventListener('submit', function(event) {
     let score = document.getElementById("score").innerHTML;
     score = parseInt(score);
     let xhttp = new XMLHttpRequest();
-    xhttp.open("POST", "http://vast-journey-61502.herokuapp.com/", true);
+    xhttp.open("POST", url, true);
     xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     // xhttp.setRequestHeader("Access-Control-Allow-Origin", "*");
     xhttp.onreadystatechange = function() {
