@@ -5,6 +5,10 @@ let dim = 3;
 let gamestate = true;
 let trial = 0;
 
+function PlaySound(soundObj) {
+    let sound = document.getElementById(soundObj);
+    sound.play();
+  }
 
 // function to grab highscores for leaderboard
 
@@ -50,9 +54,11 @@ document.getElementById("start").onclick = function () {
     }
     this.classList.add('hide');
     num_positive_cards = dim*dim - num_false_cards;
+    PlaySound("sound1");
     board = draw_board(dim);
     setFalseCards(board, num_false_cards);
     create_table(board);
+    
     setTimeout(function () {
         let table = document.getElementById("MemoryGame");
         table.classList.remove('disabled');
