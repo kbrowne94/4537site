@@ -34,7 +34,7 @@ document.getElementById("userform").addEventListener('submit', function(event) {
     xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xhttp.onreadystatechange = function() {
         if(xhttp.readyState == XMLHttpRequest.DONE && xhttp.status == 200) {
-            alert(xhttp.responseText);
+            alert('Your score was submitted') ? "" : location.reload()
         }
     }
     xhttp.send(JSON.stringify({ "name": name, "score": score }));

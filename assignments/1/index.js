@@ -60,7 +60,7 @@ document.getElementById("start").onclick = function () {
 }
 
 function endGame() {
-    alert('YOU LOST') ? "" : location.reload()
+    alert('YOU LOST') ? "" : location.reload();
 }
 
 document.getElementById('reset').onclick = function () {

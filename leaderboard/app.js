@@ -26,15 +26,14 @@ const server = http.createServer((req, res) => {
     if (req.url === '/') {
         if (req.method === 'GET') {
             statusCode = 200;
-            result = 'Hello, world!';
-            // console.log(req)
+            result = 'Hello world';
             con.getConnection(function (err, connection) {
-                const sql = "SELECT * FROM score";
+                const sql = "SELECT * FROM score ORDER BY SCORE DESC LIMIT 5";
                 connection.query(sql, function (err, result) {
                     connection.release();
                     if (err) throw err;
                     const formatted_result = JSON.parse(JSON.stringify(result))
-                    console.log(result);
+                    // console.log(result);
                     res.writeHead(200, {'Content-Type': 'text/html', "Access-Control-Allow-Origin": "*"});
                     res.end(JSON.stringify(formatted_result));
                 });
@@ -46,21 +45,33 @@ const server = http.createServer((req, res) => {
             let body = '';
             req.on('data', function (data) {
                 body+= data;
-                console.log('Partial body: ' + body)
+                // console.log('Partial body: ' + body)
               })
             req.on('end', function() {
-                console.log('body ' + body);
+                // console.log('body ' + body);
                 body = JSON.parse(body);
-                console.log(body.score);
+                // console.log(body.score);
+                let name = body.name;
+                let score = body.score 
+                con.getConnection(function(err, connection) {
+                    const sqlAdd  = `INSERT INTO score(name, score) values ('${name}', ${score})`
+                    connection.query(sqlAdd, function (err, result) {
+                        connection.release();
+                        if (err) throw err;
+                        res.writeHead(200, {'Content-Type': 'text/html', "Access-Control-Allow-Origin": "*"});
+                        res.end('post received');
+                        
+                    })
+                })
                 
-                res.writeHead(200, {'Content-Type': 'text/html', "Access-Control-Allow-Origin": "*"});
-                res.end('post received');
+                // res.writeHead(200, {'Content-Type': 'text/html', "Access-Control-Allow-Origin": "*"});
+                // res.end('post received');
 
             })
         };
     }
 });
 
-server.listen(PORT, () => {
+server.listen(process.env.PORT || PORT, () => {
     console.log(`listening on PORT ${PORT}`);
 })
