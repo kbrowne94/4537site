@@ -1,4 +1,5 @@
 const url = "https://blooming-ocean-45270.herokuapp.com"
+document.getElementById("yourscore").innerHTML = sessionStorage.getItem('score');
 function getData() {
     let xhttp = new XMLHttpRequest();
     // let url = "http://localhost:8080"
@@ -31,7 +32,7 @@ function getData() {
 document.getElementById("userform").addEventListener('submit', function(event) {
     event.preventDefault();
     let name = document.getElementById("yourName").value;
-    let score = document.getElementById("score").innerHTML;
+    let score = sessionStorage.getItem('score');
     score = parseInt(score);
     let xhttp = new XMLHttpRequest();
     xhttp.open("POST", url, true);
@@ -39,9 +40,14 @@ document.getElementById("userform").addEventListener('submit', function(event) {
     // xhttp.setRequestHeader("Access-Control-Allow-Origin", "*");
     xhttp.onreadystatechange = function() {
         if(xhttp.readyState == XMLHttpRequest.DONE && xhttp.status == 200) {
-            alert('Your score was submitted') ? "" : location.reload()
+            alert('Your score was submitted') ? "" : document.getElementById('restart').click();
         }
     }
     xhttp.send(JSON.stringify({ "name": name, "score": score }));
 
 })
+
+
+document.getElementById('restart').onclick = function () {
+        window.location.href = "index.html";
+}

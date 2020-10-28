@@ -63,8 +63,19 @@ function endGame() {
     alert('YOU LOST') ? "" : location.reload();
 }
 
-document.getElementById('reset').onclick = function () {
-    location.reload();
+document.getElementById('terminate').onclick = function () {
+    if(score >= 0){
+        let r = window.confirm("are you sure?");
+        if(r) {
+            
+            sessionStorage.setItem('score', score);
+            window.location.href = "summary.html";
+        }
+
+    } else {
+        alert('YOU LOST') ? "" : location.reload();
+    }
+    
 }
 
 

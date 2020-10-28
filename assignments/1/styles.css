@@ -40,11 +40,11 @@ table {
 
 .reset {
 	position: absolute;
-	right: 0;
+	right: 10px;
 }
 
 #board {
-	margin: 10px;
+	margin: 20px;
 }
 
 .game {
