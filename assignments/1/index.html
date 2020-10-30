@@ -31,7 +31,7 @@
 
     <link rel="stylesheet" href="../../css/assignment.css" />
   </head>
-  <body>
+  <body onload="getData()">
     <div>
       <b>score: </b><span id="score">0</span> <b>trial: </b
       ><span id="trial">0</span>
@@ -42,6 +42,16 @@
     <div  style="text-align: center">
       <div id="board"  style="text-align: center"></div>
     </div>
+
+    <div id="leaderboard" style="text-align: center">
+      <table id="highscores">
+        <th>HIGH SCORES</th>
+        <tr>
+          <td id="highscores">Name</td>
+          <td id="highscores">Score</td>
+        </tr>
+      </table>
+  </div>
     
 
     <script

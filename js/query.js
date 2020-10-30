@@ -1,5 +1,4 @@
 const url = "https://blooming-ocean-45270.herokuapp.com"
-document.getElementById("yourscore").innerHTML = sessionStorage.getItem('score');
 function getData() {
     let xhttp = new XMLHttpRequest();
     // let url = "http://localhost:8080"

@@ -5,6 +5,37 @@ let dim = 3;
 let gamestate = true;
 let trial = 0;
 
+const url = "https://blooming-ocean-45270.herokuapp.com";
+function getData() {
+    let xhttp = new XMLHttpRequest();
+    // let url = "http://localhost:8080"
+    xhttp.open("GET", url, true);
+    xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhttp.send();
+    xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+                let data = JSON.parse(this.responseText)
+                // console.log(data)
+                // console.log(data[0].NAME);
+                let table = document.getElementById("highscores");
+                data.forEach(element => {
+                    let row = table.insertRow(-1);
+                    let cell1 = row.insertCell(0);
+                    let cell2 = row.insertCell(1);
+                    let name = element.NAME;
+                    let score = element.score;
+                    cell1.id = 'highscores';
+                    cell2.id = 'highscores';
+                    cell1.innerHTML = name;
+                    cell2.innerHTML = score;
+                    
+                });
+        }
+    };
+}
+
+
+
 function PlaySound(soundObj) {
     let sound = document.getElementById(soundObj);
     sound.play();
