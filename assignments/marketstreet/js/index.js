@@ -8,7 +8,6 @@ const parseJwt = (token) => {
 
 let val = parseJwt(localStorage.getItem('token'));
 console.log(val.user);
-
 async function fetchItems() {
 
   // let items = JSON.parse(localStorage.getItem('items'));
