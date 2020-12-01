@@ -41,7 +41,7 @@ async function fetchCategoriesforSidebar() {
   const data_res = await response.json();
   let categories = [];
   data_res.categories.forEach(function(category) {
-    $('#sidebar').append(`<a href='' class="list-group-item" id='${category.id}-sidbar'>${category.name}</a>`);
+    $('#sidebar').append(`<button class="list-group-item" id='${category.id}-sidbar'>${category.name}</button>`);
     categories.push({htmlid:`${category.id}-sidbar`, databaseid: category.id});
   });
   categories.forEach(function(category) {
@@ -60,6 +60,7 @@ async function fetchItemsByCategory(id) {
     headers: {'Authorization': localStorage.getItem('token')}
   });
   const data_res = await response.json();
+  console.log(data_res);
   let node = document.getElementById('cardTable');
   node.innerHTML = "";
   data_res.items.forEach(function(item) {
